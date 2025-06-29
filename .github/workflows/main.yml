@@ -29,8 +29,8 @@ jobs:
       - name: Build and restart app on EC2
         run: |
           ssh -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /home/ec2-user/nextjs-corp
+            cd /home/ec2-user/corp
             npm install
             npm run build
-            pm2 restart nextjs-nextjs-corp || pm2 start npm --name nextjs-nextjs-corp -- start
+            pm2 restart nextjs-corp || pm2 start npm --name nextjs-corp -- start
           EOF
